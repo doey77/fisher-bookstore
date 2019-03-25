@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Fisher.Bookstore.Models;
+using Fisher.Bookstore.Api.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace Fisher.Bookstore.Api
