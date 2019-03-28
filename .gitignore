@@ -1,5 +1,6 @@
-bin\
-obj\
+api\bin\
+api\obj\
+web\node_modules
 *.swp
 *.*~
 project.lock.json
