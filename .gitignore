@@ -36,3 +36,4 @@ msbuild.wrn
 # Visual Studio 2015
 .vs/
 HelloWorld/obj/Debug/netcoreapp2.2/HelloWorld.assets.cache
+web/package-lock.json
