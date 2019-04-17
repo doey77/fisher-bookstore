@@ -81,7 +81,7 @@ namespace Fisher.Bookstore.Api
             app.UseCors("CorsPolicy");
             app.UseHttpsRedirection();
             app.UseDeveloperExceptionPage();
-            app.UseAuthentication(); //Angular won't work with this on
+            //app.UseAuthentication(); //Angular won't work with this on
             app.UseMvc();
         }
     }
