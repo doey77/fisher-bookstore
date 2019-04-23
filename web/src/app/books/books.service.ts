@@ -9,8 +9,8 @@ import { Book } from './book';
 })
 export class BooksService {
 
-  //private booksUrl = 'https://localhost:5001/api/books'; //use the books URL for the local dotnet API
-  private booksUrl = 'http://fisher-api-doey77.azurewebsites.net/api/books'; //use the books URL for the Azure dotnet API
+  private booksUrl = 'https://localhost:5001/api/books'; //use the books URL for the local dotnet API
+  //private booksUrl = 'http://fisher-api-doey77.azurewebsites.net/api/books'; //use the books URL for the Azure dotnet API
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
