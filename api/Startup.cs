@@ -38,16 +38,15 @@ namespace Fisher.Bookstore.Api
             {
                 option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-                .AddJwtBearer(jwtOptions =>
+            }).AddJwtBearer(jwtOptions =>
                 {
-                    jwtOptions.TokenValidationParameters = new TokenValidationParameters()
+                    jwtOptions.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
                     {
                         ValidateActor = true,
                         ValidateAudience = true,
                         ValidateLifetime = true,
-                        ValidIssuer = Configuration["JWTConfiguration:Issuer"],
-                        ValidAudience = Configuration["JWTConfiguration:Audience"],
+                        ValidIssuer = Configuration["JwtConfiguration:Issuer"],
+                        ValidAudience = Configuration["JwtConfiguration:Audience"],
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWTConfiguration.Key"]))
                     };
                 });
@@ -68,7 +67,7 @@ namespace Fisher.Bookstore.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            /*if (env.IsDevelopment())
+            if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
@@ -76,12 +75,13 @@ namespace Fisher.Bookstore.Api
             {
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
-            }*/
+            }
 
             //Add this for identity
-            app.UseAuthentication();
             app.UseCors("CorsPolicy");
             app.UseHttpsRedirection();
+            app.UseDeveloperExceptionPage();
+            app.UseAuthentication(); //Angular won't work with this on
             app.UseMvc();
         }
     }
